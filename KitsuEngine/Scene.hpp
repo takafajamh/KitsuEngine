@@ -29,7 +29,7 @@ public:
 	entt::registry& GetRegistry() { return m_registry; }
 
 	void AddTexture(std::shared_ptr<Texture> texture);
-	void CreateTexture(std::string path);
+	std::shared_ptr<Texture> CreateTexture(std::string path);
 
 	
 	virtual ~Scene() {}

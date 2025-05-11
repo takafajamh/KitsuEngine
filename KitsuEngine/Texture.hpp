@@ -24,7 +24,10 @@ public:
 			assert(SDL_texture != nullptr);
 		}
 		m_path = path;
-		spdlog::info("Texture from {} loader correctly", path);
+
+		assert(SDL_SetTextureScaleMode(SDL_texture, SDL_SCALEMODE_NEAREST));
+
+		spdlog::info("Texture from {} loaded correctly", path);
 	}
 
 	~Texture()

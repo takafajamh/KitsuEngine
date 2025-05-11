@@ -1,6 +1,4 @@
 #include "pch.h"
-
-
 #include "Game.hpp"
 #include "Globals.hpp"
 #include "Scene.hpp"
@@ -84,6 +82,7 @@ void Game::StartGame(Scene* scene)
     }
 
     m_scene = std::unique_ptr<Scene>(scene);
+    m_scene->Init();
 
     spdlog::info("Starting game loop");
 	MainLoop();
