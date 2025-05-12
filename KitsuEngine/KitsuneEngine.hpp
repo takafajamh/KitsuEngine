@@ -10,7 +10,7 @@
 #include "Scene.hpp"
 #include "Font.hpp"
 
-inline int KitsuEngineInit(const int windowWidth, const int windowHeight)
+inline int KitsuEngineInit(const int windowWidth, const int windowHeight, const std::string& title)
 {
     spdlog::info("Starting SDL3...");
 
@@ -30,7 +30,7 @@ inline int KitsuEngineInit(const int windowWidth, const int windowHeight)
 
     spdlog::info("SDL3 TTF Initialized!");
 
-    window = SDL_CreateWindow("SDL3 Test", windowWidth, windowHeight, 0);
+    window = SDL_CreateWindow(title.c_str(), windowWidth, windowHeight, 0);
     if (!window)
     {
         spdlog::error("Failed to create window: {}", SDL_GetError());
