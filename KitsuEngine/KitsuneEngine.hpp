@@ -2,11 +2,13 @@
 #include "pch.h"
 
 #include <SDL3/SDL.h>
+#include <SDL3_ttf/SDL_ttf.h>
 #include <spdlog/spdlog.h>
 
 #include "Globals.hpp"
 #include "Game.hpp"
 #include "Scene.hpp"
+#include "Font.hpp"
 
 inline int KitsuEngineInit(const int windowWidth, const int windowHeight)
 {
@@ -20,6 +22,13 @@ inline int KitsuEngineInit(const int windowWidth, const int windowHeight)
 
     spdlog::info("SDL3 Initialized!");
 
+    if (TTF_Init() != true) 
+    {
+        spdlog::error("TTF_Init failed: {}", SDL_GetError());
+        return 1;
+    }
+
+    spdlog::info("SDL3 TTF Initialized!");
 
     window = SDL_CreateWindow("SDL3 Test", windowWidth, windowHeight, 0);
     if (!window)

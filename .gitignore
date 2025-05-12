@@ -13,3 +13,4 @@ Release/
 *.exe
 *.log
 *.sln
+.third-old/
