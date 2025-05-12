@@ -3,6 +3,7 @@
 
 #include <SDL3/SDL.h>
 #include <SDL3_ttf/SDL_ttf.h>
+#include <SDL3_Mixer/SDL_mixer.h>
 #include <spdlog/spdlog.h>
 
 #include "Globals.hpp"
@@ -29,6 +30,13 @@ inline int KitsuEngineInit(const int windowWidth, const int windowHeight, const 
     }
 
     spdlog::info("SDL3 TTF Initialized!");
+
+    if (SDL_Init(SDL_INIT_AUDIO) != true)
+    {
+        spdlog::error("SDL_Init Audio failed: {}", SDL_GetError());   
+        return 1;
+    }
+
 
     window = SDL_CreateWindow(title.c_str(), windowWidth, windowHeight, 0);
     if (!window)
