@@ -41,7 +41,7 @@ void Game::Update()
 
 void Game::Draw()
 {
-    SDL_SetRenderDrawColor(renderer, 60, 60, 120, 255);
+    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
     SDL_RenderClear(renderer);
 
     m_scene->Draw();
@@ -63,6 +63,8 @@ void Game::MainLoop()
 
 void Game::StartGame(Scene* scene)
 {
+    spdlog::info("========== Game Initialization ==========");
+
     if (window == nullptr) 
     {
         spdlog::error("Window has not been created and assigned");
@@ -85,5 +87,6 @@ void Game::StartGame(Scene* scene)
     m_scene->Init();
 
     spdlog::info("Starting game loop");
+    spdlog::info("========== Initialization Finished ==========");
 	MainLoop();
 }
