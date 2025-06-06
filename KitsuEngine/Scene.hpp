@@ -7,7 +7,7 @@
 #include <SDL3/SDL.h>
 #include <memory>
 
-#include "Texture.hpp"
+#include "SafetyWrappers/Texture.hpp"
 
 class Game;
 

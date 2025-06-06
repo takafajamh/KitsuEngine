@@ -187,7 +187,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Font.hpp" />
+    <ClInclude Include="SafetyWrappers\Font.hpp" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="Globals.hpp" />
@@ -195,7 +195,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="Scene.hpp" />
     <ClInclude Include="Test.hpp" />
-    <ClInclude Include="Texture.hpp" />
+    <ClInclude Include="SafetyWrappers\Texture.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp" />

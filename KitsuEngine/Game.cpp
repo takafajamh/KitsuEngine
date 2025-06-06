@@ -9,7 +9,7 @@
 
 void Game::DoDeltaTime()
 {
-    Uint32 currentTime = SDL_GetTicks();
+    Uint64 currentTime = SDL_GetTicks();
 
     if (previousTime > 0) 
     {

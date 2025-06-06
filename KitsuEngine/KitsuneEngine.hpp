@@ -9,7 +9,8 @@
 #include "Globals.hpp"
 #include "Game.hpp"
 #include "Scene.hpp"
-#include "Font.hpp"
+#include "SafetyWrappers/Font.hpp"
+#include "SafetyWrappers/Texture.hpp"
 
 
 struct WindowParams

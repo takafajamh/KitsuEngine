@@ -1,11 +1,11 @@
 #pragma once
-#include "pch.h"
+#include "../pch.h"
 #include <SDL3/SDL.h>
 #include <SDL3_Image/SDL_image.h>
 
 #include <spdlog/spdlog.h>
 
-#include "Globals.hpp"
+#include "../Globals.hpp"
 #include <string>
 
 class Texture
