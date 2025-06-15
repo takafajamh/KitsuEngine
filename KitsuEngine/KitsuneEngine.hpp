@@ -5,6 +5,7 @@
 #include <SDL3_ttf/SDL_ttf.h>
 #include <SDL3_Mixer/SDL_mixer.h>
 #include <spdlog/spdlog.h>
+#include <nlohmann/json.hpp>
 
 #include "Globals.hpp"
 #include "Game.hpp"
