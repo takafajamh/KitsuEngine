@@ -30,7 +30,7 @@ protected:
 
 		for (const auto& sys : m_systems) // go over all
 		{
-			if (typeid(*sys) == type) // check if system with the same type exists
+			if (std::type_index(typeid(*sys)) == std::type_index(typeid(T))) // check if system with the same type exists
 			{
 				spdlog::warn("System of type [{}] already exists in scene. Skipping add.", type.name());
 				return static_cast<T*>(sys.get());
@@ -40,9 +40,13 @@ protected:
 		auto sys = std::make_unique<T>(std::forward<Args>(args)...); // make a new if it doesn't
 		T* ptr = sys.get();
 		m_systems.push_back(std::move(sys));
+		spdlog::info("System of type [{}] was added succesfully.", type.name());
 		return ptr;
 	}
 
+	// To change later on
+	float* xCamPos = nullptr;
+	float* yCamPos = nullptr;
 
 public:
 	Scene(Game* game);
