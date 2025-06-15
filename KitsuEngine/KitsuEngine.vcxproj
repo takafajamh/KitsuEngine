@@ -194,6 +194,7 @@
     <ClInclude Include="KitsuneEngine.hpp" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Scene.hpp" />
+    <ClInclude Include="System.hpp" />
     <ClInclude Include="Test.hpp" />
     <ClInclude Include="SafetyWrappers\Texture.hpp" />
   </ItemGroup>

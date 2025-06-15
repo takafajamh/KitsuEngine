@@ -143,8 +143,8 @@ inline int KitsuEngineInit(const int windowWidth, const int windowHeight, const 
 
 inline void KitsuEngineClean()
 {
-    spdlog::info("Starting cleanup");
-
+    spdlog::info("========== Starting cleanup ==========");
+    
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();

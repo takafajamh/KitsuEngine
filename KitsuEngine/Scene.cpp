@@ -25,6 +25,17 @@ void Scene::AddTexture(std::shared_ptr<Texture> texture)
 {
 	m_textures.push_back(texture);
 }
+void Scene::Update()
+{
+	for (std::unique_ptr<ISystem>& sys : m_systems)
+	{
+		sys->Update(m_registry);
+	}
+}
+void Scene::Draw()
+{
+
+}
 
 std::shared_ptr<Texture> Scene::CreateTexture(std::string path)
 {
