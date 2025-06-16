@@ -44,6 +44,23 @@ protected:
 		return ptr;
 	}
 
+	template<typename T, typename... Args>
+	T* getSystemIfExists()
+	{
+		const std::type_index type = typeid(T); // Getting a hashable info from type
+
+		for (const auto& sys : m_systems) // go over all
+		{
+			if (std::type_index(typeid(*sys)) == std::type_index(typeid(T))) // check if system with the same type exists
+			{
+				return static_cast<T*>(sys.get());
+			}
+		}
+
+		return nullptr;
+	}
+
+
 	// To change later on
 	float* xCamPos = nullptr;
 	float* yCamPos = nullptr;

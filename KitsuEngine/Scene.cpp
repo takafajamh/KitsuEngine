@@ -29,12 +29,6 @@ void Scene::Update()
 {
 	for (std::unique_ptr<ISystem>& sys : m_systems)
 	{
-		if (xCamPos != nullptr)
-		{
-			sys->camXPos = *xCamPos;
-			sys->camYPos = *yCamPos;
-		}
-
 		sys->Update(m_registry);
 	}
 }
@@ -42,6 +36,11 @@ void Scene::Draw()
 {
 	for (std::unique_ptr<ISystem>& sys : m_systems)
 	{
+		if (xCamPos != nullptr)
+		{
+			sys->camXPos = *xCamPos;
+			sys->camYPos = *yCamPos;
+		}
 		sys->Render(m_registry);
 	}
 }
