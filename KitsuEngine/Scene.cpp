@@ -43,6 +43,10 @@ void Scene::Draw()
 		}
 		sys->Render(m_registry);
 	}
+	for (std::unique_ptr<ISystem>& sys : m_systems)
+	{
+		sys->UIRender(m_registry);
+	}
 }
 
 std::shared_ptr<Texture> Scene::CreateTexture(std::string path)

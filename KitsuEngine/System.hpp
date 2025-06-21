@@ -9,4 +9,5 @@ public:
 
 	virtual void Update(entt::registry& registry) {}
 	virtual void Render(entt::registry& registry) {}
+	virtual void UIRender(entt::registry& registry) {}
 };

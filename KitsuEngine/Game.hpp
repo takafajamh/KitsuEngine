@@ -9,7 +9,7 @@ class Scene;
 class Game 
 {
 private:
-	Uint32 previousTime = 0;
+	Uint64 previousTime = 0;
 
 	bool m_quit_game = false;
 

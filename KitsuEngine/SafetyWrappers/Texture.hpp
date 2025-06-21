@@ -25,7 +25,12 @@ public:
 		}
 		m_path = path;
 
-		assert(SDL_SetTextureScaleMode(SDL_texture, SDL_SCALEMODE_NEAREST));
+		if (!SDL_SetTextureScaleMode(SDL_texture, SDL_SCALEMODE_NEAREST))
+		{
+			spdlog::error("Could not set Texture Scale Mode - {}", SDL_GetError());
+			assert(false);
+		}
+
 
 		spdlog::info("Texture from {} loaded correctly", path);
 	}
