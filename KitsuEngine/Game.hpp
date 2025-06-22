@@ -27,6 +27,8 @@ private:
 
 	void MainLoop();
 public:
+	int Volume = 60;
+
 	void StartGame(Scene* scene);
 
 	void NewScene(Scene* scene);

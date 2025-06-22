@@ -6,6 +6,7 @@
 #include <cassert>
 #include <spdlog/spdlog.h>
 #include <SDL3/SDL.h>
+#include <SDL3_Mixer/SDL_mixer.h>
 
 void Game::DoDeltaTime()
 {
@@ -65,9 +66,11 @@ void Game::MainLoop()
             m_scene->Init();
             toChange = nullptr;
         }
-
+        Mix_VolumeMusic(Volume);
+       
     }
 }
+
 
 void Game::StartGame(Scene* scene)
 {
@@ -96,6 +99,16 @@ void Game::StartGame(Scene* scene)
 
     spdlog::info("Starting game loop");
     spdlog::info("========== Initialization Finished ==========");
+
+
+
+    Mix_Music* music = Mix_LoadMUS("Music/theme.ogg");
+    if (!Mix_PlayMusic(music, -1))
+    {
+        spdlog::error("Can't play music {}", SDL_GetError());
+    }
+
+
 	MainLoop();
 }
 

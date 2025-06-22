@@ -59,6 +59,12 @@ inline int KitsuEngineInit(const int windowWidth, const int windowHeight, const 
         spdlog::error("SDL_Init Audio failed: {}", SDL_GetError());   
         return 1;
     }
+    if (!Mix_Init(MIX_INIT_OGG | MIX_INIT_FLAC)) { /* optional for other formats */ }
+    if (!Mix_OpenAudio(0, nullptr))
+    {  
+        SDL_Log("Mix_OpenAudio failed: %s", SDL_GetError());
+        return false;
+    }
     spdlog::info("SDL3 Audio Initialized!");
 
     spdlog::info("========== Window Initialization ==========");
