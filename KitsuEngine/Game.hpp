@@ -15,6 +15,8 @@ private:
 
 	std::unique_ptr<Scene> m_scene;
 
+	Scene* toChange = nullptr;
+
 	void DoDeltaTime();
 
 	void HandleEvents();
@@ -26,6 +28,10 @@ private:
 	void MainLoop();
 public:
 	void StartGame(Scene* scene);
+
+	void NewScene(Scene* scene);
+
+	void StopGame();
 
 	virtual ~Game() {}
 };

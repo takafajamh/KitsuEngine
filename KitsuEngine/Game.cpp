@@ -58,6 +58,14 @@ void Game::MainLoop()
         HandleEvents();
         Update();
         Draw();
+
+        if (toChange != nullptr)
+        {
+            m_scene = std::unique_ptr<Scene>(toChange);
+            m_scene->Init();
+            toChange = nullptr;
+        }
+
     }
 }
 
@@ -89,4 +97,14 @@ void Game::StartGame(Scene* scene)
     spdlog::info("Starting game loop");
     spdlog::info("========== Initialization Finished ==========");
 	MainLoop();
+}
+
+void Game::NewScene(Scene* scene)
+{
+    toChange = scene;
+}
+
+void Game::StopGame()
+{
+    m_quit_game = true;
 }
