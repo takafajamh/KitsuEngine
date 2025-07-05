@@ -42,7 +42,7 @@ void Game::Update()
 
 void Game::Draw()
 {
-    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
+    SDL_SetRenderDrawColor(renderer, 120, 60, 60, 255);
     SDL_RenderClear(renderer);
 
     m_scene->Draw();
@@ -102,7 +102,7 @@ void Game::StartGame(Scene* scene)
 
 
 
-    Mix_Music* music = Mix_LoadMUS("Music/theme.ogg");
+    music = Mix_LoadMUS("Music/theme.ogg");
     if (!Mix_PlayMusic(music, -1))
     {
         spdlog::error("Can't play music {}", SDL_GetError());

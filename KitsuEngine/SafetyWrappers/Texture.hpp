@@ -21,13 +21,19 @@ public:
 		if (SDL_texture == nullptr)
 		{
 			spdlog::error("Could not load the texture - {}", SDL_GetError());
-			assert(SDL_texture != nullptr);
+			assert(false);
 		}
 		m_path = path;
 
 		if (!SDL_SetTextureScaleMode(SDL_texture, SDL_SCALEMODE_NEAREST))
 		{
 			spdlog::error("Could not set Texture Scale Mode - {}", SDL_GetError());
+			assert(false);
+		}
+
+		if (!SDL_SetTextureBlendMode(SDL_texture, SDL_BLENDMODE_BLEND))
+		{
+			spdlog::error("Could not set Texture Blend Mode - {}", SDL_GetError());
 			assert(false);
 		}
 

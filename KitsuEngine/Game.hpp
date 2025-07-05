@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <SDL3/SDL.h>
+#include <SDL3_Mixer/SDL_mixer.h>
 
 class Scene;
 
@@ -27,6 +28,7 @@ private:
 
 	void MainLoop();
 public:
+	Mix_Music* music = nullptr;
 	int Volume = 60;
 
 	void StartGame(Scene* scene);

@@ -143,6 +143,13 @@ inline int KitsuEngineInit(const int windowWidth, const int windowHeight, const 
 
     spdlog::info("Renderer created!");
 
+    if (!SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND))
+    {
+        spdlog::error("Failed to ensure Blend: {}", SDL_GetError());
+        SDL_Quit();
+        return -1;
+    }
+
     spdlog::info("========== Initialization Finished ==========\n");
 
     return 0;
