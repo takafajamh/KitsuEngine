@@ -20,18 +20,15 @@ void Game::DoDeltaTime()
     previousTime = currentTime;
 }
 
-void Game::HandleEvents()
+void Game::HandleEvents(SDL_Event* event)
 {
-    SDL_Event event;
-    while (SDL_PollEvent(&event))
+    if (event->type == SDL_EVENT_QUIT)
     {
-        if (event.type == SDL_EVENT_QUIT)
-        {
-            spdlog::info("QUIT Event started");
-            m_quit_game = true;
-        }
+        spdlog::info("QUIT Event started");
+        m_quit_game = true;
+        
 
-        m_scene->Events(event);
+    m_scene->Events(*event);
     }
 }
 
@@ -53,10 +50,11 @@ void Game::Draw()
 
 void Game::MainLoop()
 {
-    while (!m_quit_game)
-    {
+    //while (!m_quit_game)
+   // {
+
         DoDeltaTime();
-        HandleEvents();
+        //HandleEvents();
         Update();
         Draw();
 
@@ -67,8 +65,9 @@ void Game::MainLoop()
             toChange = nullptr;
         }
         Mix_VolumeMusic(Volume);
-       
-    }
+
+    //}
+
 }
 
 
@@ -102,14 +101,16 @@ void Game::StartGame(Scene* scene)
 
 
 
-    music = Mix_LoadMUS("Music/theme.ogg");
+    music = Mix_LoadMUS("assets/Music/Hazard Hazard.ogg");
+    spdlog::error("Can't playyy music :c : {}", SDL_GetError());
     if (!Mix_PlayMusic(music, -1))
     {
-        spdlog::error("Can't play music {}", SDL_GetError());
+        spdlog::error("Can't play music :c : {}", SDL_GetError());
     }
 
-
+#ifndef __EMSCRIPTEN__
 	MainLoop();
+#endif
 }
 
 void Game::NewScene(Scene* scene)

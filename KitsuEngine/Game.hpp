@@ -20,14 +20,16 @@ private:
 
 	void DoDeltaTime();
 
-	void HandleEvents();
-
 	void Update();
 
 	void Draw();
 
-	void MainLoop();
 public:
+
+	void MainLoop();
+
+	void HandleEvents(SDL_Event* event);
+
 	Mix_Music* music = nullptr;
 	int Volume = 60;
 
