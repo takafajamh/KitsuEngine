@@ -14,3 +14,4 @@ Release/
 *.log
 *.sln
 .third-old/
+*.vcxproj
