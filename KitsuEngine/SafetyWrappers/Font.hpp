@@ -1,6 +1,7 @@
 #pragma once
 #pragma once
 #include "../pch.h"
+#include "../KitsuAsserts.hpp"
 #include <SDL3/SDL.h>
 #include <SDL3_ttf/SDL_ttf.h>
 
@@ -19,20 +20,16 @@ public:
 	Font(std::string path)
 	{
 		SDL_Font = TTF_OpenFont(path.c_str(), 24);
-		if (SDL_Font == nullptr)
-		{
-			spdlog::error("Could not load the font - {}", SDL_GetError());
-			assert(SDL_Font != nullptr);
-		}
+		acquisition_assert(SDL_Font, path, SDL_GetError());
+
 		m_path = path;
 
-
-		spdlog::info("Font from {} loaded correctly", path);
+		spdlog::info("[Font] Font from {} loaded correctly", path);
 	}
 
 	~Font()
 	{
-		spdlog::info("Deleting Font {} ", m_path);
+		spdlog::info("[Font] Deleting Font {} ", m_path);
 		TTF_CloseFont(SDL_Font);
 	}
 

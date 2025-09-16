@@ -2,6 +2,7 @@
 #include "Game.hpp"
 #include "Globals.hpp"
 #include "Scene.hpp"
+#include "KitsuAsserts.hpp"
 
 #include <cassert>
 #include <spdlog/spdlog.h>
@@ -102,17 +103,10 @@ void Game::StartGame(Scene* scene)
     spdlog::info("========== Initialization Finished ==========");
 
 
-
-    music = Mix_LoadMUS("assets/Music/Hazard Hazard.ogg");
-    spdlog::error("Can't playyy music :c : {}", SDL_GetError());
-    if (!Mix_PlayMusic(music, -1))
-    {
-        spdlog::error("Can't play music :c : {}", SDL_GetError());
-    }
-
-#ifndef __EMSCRIPTEN__
-	MainLoop();
-#endif
+    std::string path = "assets/Music/Hazard Hazard.ogg";
+    music = Mix_LoadMUS(path.c_str());
+    acquisition_assert(music, path, SDL_GetError());
+    kitsu_assert(Mix_PlayMusic(music, -1), "Can't play music :c : {}", "Music plays :3", SDL_GetError());
 }
 
 void Game::NewScene(Scene* scene)
