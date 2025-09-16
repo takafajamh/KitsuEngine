@@ -20,16 +20,18 @@ void Game::DoDeltaTime()
     previousTime = currentTime;
 }
 
-void Game::HandleEvents(SDL_Event* event)
+bool Game::HandleEvents(SDL_Event* event)
 {
     if (event->type == SDL_EVENT_QUIT)
     {
         spdlog::info("QUIT Event started");
         m_quit_game = true;
-        
+        return true;
 
-    m_scene->Events(*event);
     }
+    m_scene->Events(*event);
+
+    return false;
 }
 
 void Game::Update()

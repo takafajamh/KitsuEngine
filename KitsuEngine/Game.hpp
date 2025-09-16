@@ -28,7 +28,7 @@ public:
 
 	void MainLoop();
 
-	void HandleEvents(SDL_Event* event);
+	bool HandleEvents(SDL_Event* event);
 
 	Mix_Music* music = nullptr;
 	int Volume = 60;
