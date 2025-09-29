@@ -15,4 +15,8 @@
 		SDL_FRect textureRect;			// what is the texture rect, important only if useTextureRect is true
 
 		std::shared_ptr<Texture> texture; // Pointer to a used texture
+
+		double angle = 0;
+		bool standardRotation = true;
+		SDL_FPoint center = {};				// world pos, destination
 	};
