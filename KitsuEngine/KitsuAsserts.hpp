@@ -15,9 +15,11 @@
 // 3 - log error, assert
 // 4 - log error, log success, assert
 
-#define ResourceFoundLevelAssertions 3	// for acquisition_assert
-#define AssertLevel 3					// for kitsu_assert
-#define ReturnAssertLevel 3				// for kitsu_return_assert
+#define UnitedAssetLevel 3
+
+#define ResourceFoundLevelAssertions UnitedAssetLevel	// for acquisition_assert
+#define AssertLevel UnitedAssetLevel					// for kitsu_assert
+#define ReturnAssertLevel UnitedAssetLevel				// for kitsu_return_assert
 
 #if AssertLevel == 0
 	#define kitsu_assert(x, message, ...) x
