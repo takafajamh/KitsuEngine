@@ -65,6 +65,8 @@ protected:
 	float* xCamPos = nullptr;
 	float* yCamPos = nullptr;
 
+	virtual std::pair<int,int> findCamPos();
+
 public:
 	Scene(Game* game);
 
