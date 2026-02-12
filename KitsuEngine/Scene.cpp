@@ -39,6 +39,10 @@ void Scene::Update()
 	for (std::unique_ptr<ISystem>& sys : m_systems)
 	{
 		sys->Update(m_registry);
+		if (sys->closeGame)
+		{
+			m_game->StopGame();
+		}
 	}
 }
 

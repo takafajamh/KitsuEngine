@@ -26,6 +26,8 @@ private:
 
 public:
 
+	bool shouldStop() { return m_quit_game; }
+
 	void MainLoop();
 
 	bool HandleEvents(SDL_Event* event);

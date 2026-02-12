@@ -103,10 +103,10 @@ void Game::StartGame(Scene* scene)
     spdlog::info("========== Initialization Finished ==========");
 
 
-    //std::string path = "assets/Music/Hazard Hazard.ogg";
-    //music = Mix_LoadMUS(path.c_str());
-    //acquisition_assert(music, path, SDL_GetError());
-    //kitsu_assert(Mix_PlayMusic(music, -1), "Can't play music :c : {}", "Music plays :3", SDL_GetError());
+    std::string path = "assets/Music/bg.wav";
+    music = Mix_LoadMUS(path.c_str());
+    acquisition_assert(music, path, SDL_GetError());
+    kitsu_assert(Mix_PlayMusic(music, -1), "Can't play music :c : {}", "Music plays :3", SDL_GetError());
 }
 
 void Game::NewScene(Scene* scene)
