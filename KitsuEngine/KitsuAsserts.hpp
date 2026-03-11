@@ -15,7 +15,7 @@
 // 3 - log error, assert
 // 4 - log error, log success, assert
 
-#define UnitedAssetLevel 3
+#define UnitedAssetLevel 4
 
 #define ResourceFoundLevelAssertions UnitedAssetLevel	// for acquisition_assert
 #define AssertLevel UnitedAssetLevel					// for kitsu_assert
